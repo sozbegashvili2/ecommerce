@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__.'/../vendor/autoload.php';
 use app\{Router,Request};
 use app\controllers\{VerificationController,FiltProductsController,ProductsController,CheckoutController,CartController,WishlistController,RegisterController,HomeController,AboutController,ContactController,LoginController};
@@ -15,3 +16,4 @@ $router->get('/filtproducts',[FiltProductsController::class,'filt']);
 $router->post('/register',[RegisterController::class,'postRegister']);
 $router->get('/verification',[HomeController::class,'verification']);
 $router->get('/verify',[VerificationController::class,'verify']);
+$router->post('/login',[LoginController::class,'postLogin']);
