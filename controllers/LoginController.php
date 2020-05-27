@@ -19,4 +19,8 @@ class LoginController
             'data' => $data,
             'router'=> $router]);
     }
+    public function logout(Router $router,Request $request) {
+        session_destroy();
+        header('Location:/');
+    }
 }

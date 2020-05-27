@@ -27,13 +27,25 @@
 <div class="top-line">
     <div class="top-line-container">
         <a href="/wishlist" id="wish"><i class="fa fa-heart"></i> Wishlist (0)</a>
-        <div class="dropdownone">
-            <button onclick="myFunction()" class="dropbtnone"><i class="fa fa-user"></i> My Account</button>
-            <div id="myDropdownone" class="dropdown-contentone">
-                <a href="/login">Login</a>
-                <a href="/register">Register</a>
-            </div>
-        </div>
+        <?php
+        if(isset($_SESSION['currentUser'])) {
+            echo '<div class="dropdownone">';
+            echo  '<button onclick="myFunction()" class="dropbtnone"><i class="fa fa-user"></i>'.$_SESSION['currentUser'].'</button>';
+            echo '<div id="myDropdownone" class="dropdown-contentone">';
+            echo  '<a href="/logout">Logout</a>';
+            echo  '</div>';
+            echo '</div>';
+        } else
+        {
+          echo '<div class="dropdownone">';
+          echo  '<button onclick="myFunction()" class="dropbtnone"><i class="fa fa-user"></i> My Account</button>';
+          echo '<div id="myDropdownone" class="dropdown-contentone">';
+          echo  '<a href="/login">Login</a>';
+            echo '<a href="/register">Register</a>';
+          echo  '</div>';
+        echo '</div>';
+        }
+        ?>
         <a href="/cart" id="check"><i class="fa fa-share"></i> Checkout</a>
         <a href="https://www.facebook.com/zemezlab/"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com/zemezlab"><i class="fab fa-twitter-square"></i></a>
