@@ -7,7 +7,7 @@ use app\Router;
 class RegisterController
 {
     public function register(\app\Router $router) {
-            return $router->getViewContent('register');
+            return $router->renderView('register');
     }
     public function postRegister(Router $router,Request $request) {
         $data = $request->getBody();
@@ -15,7 +15,7 @@ class RegisterController
         foreach ($data as $key => $value) {
             if($value == '') $errors[$key] = 'Please Fill This Field';
         }
-        return $router->getViewContent('register',[
+        return $router->renderView('register',[
             'errors' => $errors,
             'data' => $data,
             'router'=> $router]);

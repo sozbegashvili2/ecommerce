@@ -37,7 +37,7 @@ if ($success) {
         //Recipients
         $mail->setFrom('admin@techpower.com', 'TechPower');
         $mail->addAddress($data['email'], 'Joe User');
-        $body = "<a href='http://localhost:8080/verify.php?vkey={$success}'>Verify Your Account</a>";
+        $body = "<a href='http://localhost:8080/verify?vkey={$success}'>Verify Your Account</a>";
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'E-mail Verification';

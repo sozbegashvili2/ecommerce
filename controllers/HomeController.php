@@ -6,7 +6,9 @@ use app\Router;
 class HomeController
 {
 public function index(\app\Router $router){
-return $router->getViewContent('index');
+return $router->renderView('index');
 }
-
+public function verification(Router $router,Request $request) {
+    return $router->renderContent('verification');
+}
 }

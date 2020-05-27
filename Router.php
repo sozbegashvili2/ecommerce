@@ -8,6 +8,7 @@ class Router
     private $postRoutes = [];
     public $database = null;
     public $request = null;
+    public $layout = 'layout';
     public function __construct(Request $request,Database $database)
     {
         $this->request = $request;
@@ -39,15 +40,29 @@ class Router
 
            if (is_string($check)) {
                 $content = $this->getViewContent($check);
+               require_once __DIR__.'/views/layout.php';
            }
            else
            {
-               $content = call_user_func($check,$this,$this->request);
+              echo $content = call_user_func($check,$this,$this->request);
            }
         }
-        require_once __DIR__.'/views/layout.php';
+
+    }
+    public function renderView(string $view, $params = [])
+    {
+        ob_start();
+        $content = $this->getViewContent($view, $params);
+        include_once __DIR__."/views/{$this->layout}.php";
+        return ob_get_clean();
     }
 
+    public function renderContent(string $content)
+    {
+        ob_start();
+        include_once __DIR__."/views/{$content}.php";
+        return ob_get_clean();
+    }
     public function getViewContent($check,$params = [])
     {
         foreach ($params as $key => $value) {

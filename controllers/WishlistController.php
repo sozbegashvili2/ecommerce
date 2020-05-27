@@ -3,7 +3,7 @@ namespace app\controllers;
 class WishlistController
 {
     public function wishlist(\app\Router $router){
-        return $router->getViewContent('wishlist');
+        return $router->renderView('wishlist');
     }
 
 }
