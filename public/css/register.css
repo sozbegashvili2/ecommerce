@@ -1,0 +1,20 @@
+.workdays {
+    color:turquoise;
+}
+.account-register h1 {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.account-register p {
+    margin-left: 30px;
+    margin-top: 40px;
+}
+.account-register legend {
+    margin-left: 30px;
+    width: 40%;
+}
+.account-register hr {
+    width: 95%;
+}
+
