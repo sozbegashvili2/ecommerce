@@ -11,4 +11,7 @@ return $router->renderView('index');
 public function verification(Router $router,Request $request) {
     return $router->renderContent('verification');
 }
+public function redirect(Router $router,Request $request) {
+    return $router->renderContent('404');
+}
 }

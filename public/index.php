@@ -18,3 +18,4 @@ $router->get('/verification',[HomeController::class,'verification']);
 $router->get('/verify',[VerificationController::class,'verify']);
 $router->post('/login',[LoginController::class,'postLogin']);
 $router->get('/logout',[LoginController::class,'logout']);
+$router->get('/404',[HomeController::class,'redirect']);

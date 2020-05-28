@@ -70,8 +70,8 @@ $start = 0;
                                 echo '</div>';
                                 echo '<form action="#">';
                                 echo '<div class="thumb-content">';
-                                echo '<h4>'.$result[$j]['productName'].'</h4>';
-                                echo '<p>'.$result[$j]['productDes'].'</p>';
+                                echo  "<a style='text-decoration: none' href='/products?id={$result[$j]['id']}'>".'<h4>'.$result[$j]['productName'].'</h4>'.'</a>';
+                                echo  "<a style='text-decoration: none;color: #000' href='/products?id={$result[$j]['id']}'>".'<p>'.$result[$j]['productDes'].'</p>'.'</a>';
                                 echo '<div class="des">';
                                 echo '<span style="margin-left: 16px" class="item-price" id="spn">$'.$result[$j]['productPrice'].'</span>';
                                 echo '<div class="btnbut">';
@@ -123,10 +123,10 @@ $start = 0;
 </section>
 <h3 class="popular">Popular Brands</h3>
 <section id="brands">
-    <a href="#"><img src="img/asus.png"></a>
-    <a href="#"><img src="img/dell.jpg"></a>
-    <a href="#"> <img src="img/hp.jpg"></a>
-    <a href="#"> <img src="img/HTC.png"></a>
-    <a href="#"><img src="img/intel.png"></a>
-    <a href="#"><img src="img/microsoft.jpg"></a>
+    <a href="/filtproducts?brand=Asus"><img src="img/asus.png"></a>
+    <a href="/filtproducts?brand=Dell"><img src="img/dell.jpg"></a>
+    <a href="/filtproducts?brand=hp"> <img src="img/hp.jpg"></a>
+    <a href="/filtproducts?brand=htc"> <img src="img/HTC.png"></a>
+    <a href="/filtproducts?brand=intel"><img src="img/intel.png"></a>
+    <a href="/filtproducts?brand=microsoft"><img src="img/microsoft.jpg"></a>
 </section>

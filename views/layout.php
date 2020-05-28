@@ -68,12 +68,11 @@
 <nav style="background: #232527">
     <div class="row" style="width: 100%;">
         <ul class="main-nav__items">
-            <li class="main-nav__item"><a href="#" class="main-nav__link">SOFTWARE</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">CPUS</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">CD/DVD Drives</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Motherboards</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Hard Drives</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Monitors</a></li>
+            <li class="main-nav__item"><a href="/filtproducts?product=cpu" class="main-nav__link">CPUS</a></li>
+            <li class="main-nav__item"><a href="/filtproducts?product=cd/dvd" class="main-nav__link">CD/DVD Drives</a></li>
+            <li class="main-nav__item"><a href="/filtproducts?product=motherboards" class="main-nav__link">Motherboards</a></li>
+            <li class="main-nav__item"><a href="/filtproducts?product=harddrives" class="main-nav__link">Hard Drives</a></li>
+            <li class="main-nav__item"><a href="/filtproducts?product=Monitors" class="main-nav__link">Monitors</a></li>
         </ul>
         <div class="dropdown">
             <button style="margin-left: 180px;" type="button" class="btn btn-info" data-toggle="dropdown">
@@ -103,13 +102,12 @@
 <footer id="main-footer">
     <div class="main-footer__categories">
         <h3>Categories</h3>
-        <ul class="main-footer__categories--items" >
-            <li class="main-footer__categories--item"><a href="#" class="item-link">Software</a></li>
-            <li class="main-footer__categories--item"><a href="#" class="item-link">CPUs</a></li>
-            <li class="main-footer__categories--item"><a href="#" class="item-link">CD/DVD drives</a></li>
-            <li class="main-footer__categories--item"><a href="#" class="item-link">Motherboards</a></li>
-            <li class="main-footer__categories--item"><a href="#" class="item-link">Hard drives</a></li>
-            <li class="main-footer__categories--item"><a href="#" class="item-link">Monitors</a></li>
+        <ul class="main-footer__categories--items" style="margin-top:-2px" >
+            <li class="main-footer__categories--item"><a href="/filtproducts?product=cpu" class="item-link">CPUs</a></li>
+            <li class="main-footer__categories--item"><a href="/filtproducts?product=cd/dvd" class="item-link">CD/DVD drives</a></li>
+            <li class="main-footer__categories--item"><a href="/filtproducts?product=motherboards" class="item-link">Motherboards</a></li>
+            <li class="main-footer__categories--item"><a href="/filtproducts?product=harddrives" class="item-link">Hard drives</a></li>
+            <li class="main-footer__categories--item"><a href="/filtproducts?product=Monitors" class="item-link">Monitors</a></li>
         </ul>
     </div>
     <div class="main-footer__information">
