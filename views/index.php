@@ -1,3 +1,11 @@
+<?php
+$stmt = $this->database->pdo->prepare("SELECT id,productName,productPrice,productQuantity,SUBSTR(productDesc, 1, 99) as productDes,productImg FROM products ORDER BY REG_DATE DESC LIMIT 6");
+$stmt->execute();
+$result = $stmt->fetchAll();
+$size = sizeof($result)/3;
+$start = 0;
+?>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -44,134 +52,44 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
                 <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
-                    <div class="item carousel-item ">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <a href="products.html"><h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4></a>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button type="submit" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button  id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item carousel-item active">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="img/motherboard.png" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <form action="#">
-                                        <div class="thumb-content">
-                                            <h4>EVGA Z87 Classified (LGA1150) Haswell, EATX</h4>
-                                            <p>We are living in the epoch of great technical progress and we are sure that new technologies are our..</p>
-                                            <div class="des">
-                                                <span class="item-price" id="spn">$299.00</span>
-                                                <div class="btnbut">
-                                                    <button type="submit" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
-                                                    <button  id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        for ($i = 0; $i < $size; $i++) {
+                            if ($i == 0) {
+                                echo ' <div class="item carousel-item active">';
+                            }
+                            else {
+                                echo ' <div class="item carousel-item">';
+                            }
+
+                            echo '<div class="row">';
+                            for ($j = $start; $j<$start+3;$j++) {
+                                echo '<div class="col-sm-4">';
+                                echo '<div class="thumb-wrapper">';
+                                echo '<div class="img-box">';
+                                echo "<img src='{$result[$j]['productImg']}' class='img-responsive img-fluid' alt=''>";
+                                echo '</div>';
+                                echo '<form action="#">';
+                                echo '<div class="thumb-content">';
+                                echo '<h4>'.$result[$j]['productName'].'</h4>';
+                                echo '<p>'.$result[$j]['productDes'].'</p>';
+                                echo '<div class="des">';
+                                echo '<span style="margin-left: 16px" class="item-price" id="spn">$'.$result[$j]['productPrice'].'</span>';
+                                echo '<div class="btnbut">';
+                                echo '<button style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>';
+                                echo '<button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>';
+                                 echo '</div>';
+                                   echo '</div>';
+                                    echo '</div>';
+                                   echo '</form>';
+                              echo  '</div>';
+                           echo '</div>';
+                            }
+                        echo '</div>';
+                         echo '</div>';
+                         $start = $start+3;
+                        }
+
+                    ?>
                 </div>
                 <!-- Carousel controls -->
                 <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">

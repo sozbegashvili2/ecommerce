@@ -82,7 +82,15 @@
                             Continue Shopping  <span class="glyphicon glyphicon-shopping-cart"></span>
                         </a></td>
                     <td>
-                        <a href="/checkout" style="color:white" type="button" class="btn btn-success">
+                        <a <?php
+                            if (isset($_SESSION['currentUser'])) {
+                                echo 'href="/checkout"';
+                            }
+                            else
+                            {
+                                echo 'href="/login"';
+                            }
+                        ?> style="color:white" type="button" class="btn btn-success">
                             Checkout <span class="glyphicon glyphicon-play"></span>
                         </a></td>
                 </tr>
