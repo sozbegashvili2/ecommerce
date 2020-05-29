@@ -65,6 +65,7 @@ class Router
     }
     public function addToCart($btn) {
         $cart_item = array(
+            'id' =>$btn['id'],
             'name'=>$btn['name'],
             'price' => $btn['price'],
             'quantity' => $btn['quantity'],

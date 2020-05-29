@@ -89,7 +89,7 @@
             </button>
             <div class="dropdown-menu" id="drp">
                 <?php
-                if (!isset($_SESSION['cart'])) {
+                if (!isset($_SESSION['cart']) || sizeof($_SESSION['cart']) == 0 ) {
                     echo "<p style='text-align: center'>Your cart is empty</p>";
                 }
                 else
