@@ -1,3 +1,9 @@
+<?php
+$product = $this->request->getBody();
+if ($product and sizeof($product) > 1) {
+    $this->addToCart($product);
+}
+?>
 <h1 style="margin-top: 30px;margin-left: 30px;">Products</h1>
 <div class="container" id="contain" style="display: flex;flex-wrap: wrap;margin-top: 50px;">
     <?php foreach ($result as $key => $value): ?>
@@ -6,14 +12,35 @@
             <div class="img-box">
                 <img src="<?php echo $value['productImg']?>" class="img-responsive img-fluid" alt="">
             </div>
-            <form action="#">
+            <form action="" method="get">
+                <input type="hidden" name="<?php
+                if (isset($product['product'])) {
+                    echo 'product';
+                }
+                else if(isset($product['brand'])) {
+                    echo 'brand';
+                }
+                ?>" value="<?php
+                if (isset($product['product'])) {
+                    echo $product['product'];
+                }
+                else if(isset($product['brand']))
+                {
+                    echo $product['brand'];
+                }
+                ?>">
+                <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
+                <input type="hidden" name="name" value="<?php echo $value['productName'] ?>">
+                <input type="hidden" name="price" value="<?php echo $value['productPrice'] ?>">
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="image" value="<?php echo $value['productImg'] ?>">
                 <div class="thumb-content">
                     <a style="text-decoration: none" href="/products?id=<?php echo $value['id'];?>"><h4 style="font-size: 17px"><?php echo $value['productName'] ?></h4></a>
                     <a style="color: #000;text-decoration: none" href="/products?id=<?php echo $value['id'];?>"><p><?php echo $value['productDes']; ?></p></a>
                     <div class="des">
                         <span style="margin-left: 16px" class="item-price" id="spn">$<?php echo $value['productPrice'] ?></span>
                         <div class="btnbut">
-                            <button style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
+                            <button type="submit" style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>
                             <button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>
                         </div>
                     </div>

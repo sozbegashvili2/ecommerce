@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,18 +77,38 @@
         </ul>
         <div class="dropdown">
             <button style="margin-left: 180px;" type="button" class="btn btn-info" data-toggle="dropdown">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">1</span>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger"><?php
+                    if(isset($_SESSION['cart'])) {
+                        echo sizeof($_SESSION['cart']);
+                    }
+                    else
+                    {
+                        echo 0;
+                    }
+                    ?></span>
             </button>
             <div class="dropdown-menu" id="drp">
+                <?php
+                if (!isset($_SESSION['cart'])) {
+                    echo "<p style='text-align: center'>Your cart is empty</p>";
+                }
+                else
+                if (isset($_SESSION['cart']))
+                    foreach ($_SESSION['cart'] as $key => $value) {
+                ?>
+
                 <div class="row cart-detail">
                     <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-                        <img src="https://static.toiimg.com/thumb/msid-55980052,width-640,resizemode-4/55980052.jpg">
+                        <img src="<?php
+                        echo $value['image'];
+                        ?>">
                     </div>
                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
-                        <p>Lenovo DSC-RX100M..</p>
-                        <span class="price text-info"> $445.78</span> <span class="count"> Quantity:01</span>
+                        <p><?php echo $value['name'] ?></p>
+                        <span class="price text-info">Price: $<?php echo $value['price']*$value['quantity'] ?></span> <span class="count">Quantity:<?php echo $value['quantity'] ?></span>
                     </div>
                 </div>
+                <?php } ?>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
                         <a id="drpchk" style="color: white;" href="/cart"><button class="btn btn-primary btn-block">Checkout</button></a>

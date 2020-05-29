@@ -63,6 +63,24 @@ class Router
         include_once __DIR__."/views/{$content}.php";
         return ob_get_clean();
     }
+    public function addToCart($btn) {
+        $cart_item = array(
+            'name'=>$btn['name'],
+            'price' => $btn['price'],
+            'quantity' => $btn['quantity'],
+            'image' => $btn['image']
+        );
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+        if (array_key_exists($btn['id'],$_SESSION['cart'])) {
+            echo '<script>alert("The item is already in cart")</script>';
+        }
+        else {
+            $_SESSION['cart'][$btn['id']] = $cart_item;
+            echo '<script>alert("The item has added to cart")</script>';
+        }
+    }
     public function getViewContent($check,$params = [])
     {
         foreach ($params as $key => $value) {

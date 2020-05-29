@@ -4,6 +4,10 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 $size = sizeof($result)/3;
 $start = 0;
+$btn = $this->request->getBody() ?? false;
+if($btn){
+$this->addToCart($btn);
+}
 ?>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -68,14 +72,19 @@ $start = 0;
                                 echo '<div class="img-box">';
                                 echo "<img src='{$result[$j]['productImg']}' class='img-responsive img-fluid' alt=''>";
                                 echo '</div>';
-                                echo '<form action="#">';
+                                echo '<form action="/" method="GET">';
+                                echo "<input name='id' type='hidden' value='{$result[$j]['id']}'>";
+                                echo "<input name='name' type='hidden' value='{$result[$j]['productName']}'>";
+                                echo "<input name='price' type='hidden' value='{$result[$j]['productPrice']}'>";
+                                echo "<input name='image' type='hidden' value='{$result[$j]['productImg']}'>";
+                                echo "<input name='quantity' type='hidden' value='1'>";
                                 echo '<div class="thumb-content">';
                                 echo  "<a style='text-decoration: none' href='/products?id={$result[$j]['id']}'>".'<h4>'.$result[$j]['productName'].'</h4>'.'</a>';
                                 echo  "<a style='text-decoration: none;color: #000' href='/products?id={$result[$j]['id']}'>".'<p>'.$result[$j]['productDes'].'</p>'.'</a>';
                                 echo '<div class="des">';
                                 echo '<span style="margin-left: 16px" class="item-price" id="spn">$'.$result[$j]['productPrice'].'</span>';
                                 echo '<div class="btnbut">';
-                                echo '<button style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>';
+                                echo '<button name="addCart" type="submit" style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>';
                                 echo '<button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>';
                                  echo '</div>';
                                    echo '</div>';
