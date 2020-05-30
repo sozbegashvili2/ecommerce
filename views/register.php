@@ -62,7 +62,7 @@ else{
 <div class="account-register">
     <h1>NEWSLETTER</h1>
     <hr>
-    <p>If you already have an account with us, please login at the <a href="login.html">login page</a>.</p>
+    <p>If you already have an account with us, please login at the <a href="/login">login page</a>.</p>
     <legend>Your Personal Details</legend>
     <hr>
     <div class="container">

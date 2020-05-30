@@ -44,4 +44,26 @@ class Database
         $result = $statement->fetch();
         return $result;
     }
+    public function addProductToDatabase($data,$image) {
+        try {
+            $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $statement = $this->pdo->prepare("INSERT INTO 
+products(productName,productPrice,productQuantity,productDesc,productImg,brandId,categoryId)
+VALUES (:proname,:price,:quantity,:prodesc,:img,:brand,:category)");
+            $statement->bindValue(':proname',$data['proname']);
+            $statement->bindValue(':price',$data['proprice']);
+            $statement->bindValue(':quantity',$data['proquantity']);
+            $statement->bindValue(':prodesc',$data['descript']);
+            $statement->bindValue(':img',$image);
+            $statement->bindValue(':brand',$data['brand']);
+            $statement->bindValue(':category',$data['category']);
+            $statement->execute();
+            echo "<script>alert('Product added succesfully')</script>";
+            header('Location:/');
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
 }

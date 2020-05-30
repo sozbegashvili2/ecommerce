@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__.'/../vendor/autoload.php';
 use app\{Router,Request};
-use app\controllers\{VerificationController,FiltProductsController,ProductsController,CheckoutController,CartController,WishlistController,RegisterController,HomeController,AboutController,ContactController,LoginController};
+use app\controllers\{AddProductController,VerificationController,FiltProductsController,ProductsController,CheckoutController,CartController,WishlistController,RegisterController,HomeController,AboutController,ContactController,LoginController};
 $conn = new \app\db\Database();
 $router = new Router(new Request(),$conn);
 $router->get('/',[HomeController::class,'index']);
@@ -19,3 +19,5 @@ $router->get('/verify',[VerificationController::class,'verify']);
 $router->post('/login',[LoginController::class,'postLogin']);
 $router->get('/logout',[LoginController::class,'logout']);
 $router->get('/404',[HomeController::class,'redirect']);
+$router->get('/add','add');
+$router->post('/add',[AddProductController::class,'addProduct']);
