@@ -82,6 +82,26 @@ class Router
             echo '<script>alert("The item has added to cart")</script>';
         }
     }
+    public function addToWish($btn) {
+        $wish_item = array(
+            'id' =>$btn['id'],
+            'description'=>$btn['description'],
+            'name'=>$btn['name'],
+            'price' => $btn['price'],
+            'quantity' => $btn['quantity'],
+            'image' => $btn['image']
+        );
+        if (!isset($_SESSION['wish'])) {
+            $_SESSION['wish'] = array();
+        }
+        if (array_key_exists($btn['id'],$_SESSION['wish'])) {
+            echo '<script>alert("The item is already in wishlist")</script>';
+        }
+        else {
+            $_SESSION['wish'][$btn['id']] = $wish_item;
+            echo '<script>alert("The item has added to wishlist")</script>';
+        }
+    }
     public function getViewContent($check,$params = [])
     {
         foreach ($params as $key => $value) {

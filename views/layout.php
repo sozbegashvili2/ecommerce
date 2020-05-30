@@ -27,7 +27,15 @@
 <script src="app.js"></script>
 <div class="top-line">
     <div class="top-line-container">
-        <a href="/wishlist" id="wish"><i class="fa fa-heart"></i> Wishlist (0)</a>
+        <a href="/wishlist" id="wish"><i class="fa fa-heart"></i> Wishlist (<?php
+            if(isset($_SESSION['wish'])) {
+                echo sizeof($_SESSION['wish']);
+            }
+            else
+            {
+                echo 0;
+            }
+            ?>)</a>
         <?php
         if(isset($_SESSION['currentUser'])) {
             echo '<div class="dropdownone">';

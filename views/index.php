@@ -5,8 +5,11 @@ $result = $stmt->fetchAll();
 $size = sizeof($result)/3;
 $start = 0;
 $btn = $this->request->getBody() ?? false;
-if($btn){
+if($btn && isset($btn['addCart'])){
 $this->addToCart($btn);
+}
+if ($btn && isset($btn['addWish'])) {
+    $this->addToWish($btn);
 }
 ?>
 
@@ -77,6 +80,7 @@ $this->addToCart($btn);
                                 echo "<input name='name' type='hidden' value='{$result[$j]['productName']}'>";
                                 echo "<input name='price' type='hidden' value='{$result[$j]['productPrice']}'>";
                                 echo "<input name='image' type='hidden' value='{$result[$j]['productImg']}'>";
+                                echo "<input name='description' type='hidden' value='{$result[$j]['productDes']}'>";
                                 echo "<input name='quantity' type='hidden' value='1'>";
                                 echo '<div class="thumb-content">';
                                 echo  "<a style='text-decoration: none' href='/products?id={$result[$j]['id']}'>".'<h4>'.$result[$j]['productName'].'</h4>'.'</a>';
@@ -85,7 +89,7 @@ $this->addToCart($btn);
                                 echo '<span style="margin-left: 16px" class="item-price" id="spn">$'.$result[$j]['productPrice'].'</span>';
                                 echo '<div class="btnbut">';
                                 echo '<button name="addCart" type="submit" style="margin-right: 10px" id="btn-cart"><i style="font-size: 12px;" class="fa fa-shopping-cart"></i></button>';
-                                echo '<button id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>';
+                                echo '<button type="submit" name="addWish" id="btn-wish"><i style="font-size: 12px;" class="fa fa-heart"></i></button>';
                                  echo '</div>';
                                    echo '</div>';
                                     echo '</div>';
