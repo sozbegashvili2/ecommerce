@@ -19,5 +19,6 @@ $router->get('/verify',[VerificationController::class,'verify']);
 $router->post('/login',[LoginController::class,'postLogin']);
 $router->get('/logout',[LoginController::class,'logout']);
 $router->get('/404',[HomeController::class,'redirect']);
-$router->get('/add','add');
+$router->get('/add',[AddProductController::class,'add']);
 $router->post('/add',[AddProductController::class,'addProduct']);
+$router->post('/checkout',[CheckoutController::class,'postCheckout']);

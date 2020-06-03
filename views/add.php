@@ -26,7 +26,7 @@ $data = $data ?? [];
         if($message and $data) {
             echo $data['proquantity'];
         }
-        ?>"  type="number" name="proquantity" class="form-control" id="exampleInputPassword1" placeholder="Product Price">
+        ?>"  type="number" name="proquantity" class="form-control" id="exampleInputPassword1" placeholder="Product Quantity">
     </div>
     <div class="form-group">
         <label for="cat">Select Category</label>

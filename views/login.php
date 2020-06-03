@@ -15,6 +15,7 @@ if (!$errors) {
         $result = $stmt->fetch();
         if($result && $result['verified'] == 1 && password_verify($data['password'],$result['password'])){
             $_SESSION['currentUser'] = $result['firstName'];
+            $_SESSION['email'] = $data['email'];
             header('Location:/');
         }
         else

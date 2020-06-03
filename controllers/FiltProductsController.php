@@ -41,7 +41,8 @@ class FiltProductsController
         }
         return $router->renderView('filtered-products',[
             'result' => $res,
-            'numberOfPages' => $numberOfPages
+            'numberOfPages' => $numberOfPages,
+            'page' => $page
         ]);
     }
 

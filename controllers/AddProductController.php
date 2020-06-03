@@ -31,11 +31,6 @@ else
             $message = "file is not an image";
             $uploadOk = 0;
         }
-// Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
-            $message = "Too large file";
-            $uploadOk = 0;
-        }
 // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             return header("Location:/404");
@@ -44,14 +39,15 @@ else
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $image = 'img/'.$_FILES['fileToUpload']['name'];
                 return $router->database->addProductToDatabase($data,$image);
-            } else {
-                return header("Location:/404");
             }
         }
     }
-
-
-
 }
-
+public function add(Router $router,Request $request) {
+    if(isset($_SESSION['email']) && $_SESSION['email'] == 'admin@gmail.com') {
+        return $router->renderView('add');
+    }
+    else
+        return $router->renderView('nopermission');
+}
 }

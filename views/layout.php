@@ -42,6 +42,9 @@
             echo  '<button onclick="myFunction()" class="dropbtnone"><i class="fa fa-user"></i>'.$_SESSION['currentUser'].'</button>';
             echo '<div id="myDropdownone" class="dropdown-contentone">';
             echo  '<a href="/logout">Logout</a>';
+            if($_SESSION['email'] == 'admin@gmail.com') {
+                echo  '<a href="/add">Add Product</a>';
+            }
             echo  '</div>';
             echo '</div>';
         } else
@@ -67,12 +70,7 @@
             <img src="img/logo.png" alt="logo">
         </a>
     </div>
-    <form action="#" method="get">
-        <div class="search">
-            <input type="text" name="search" placeholder="Search">
-            <button type="submit"><span class="fa fa-search"></span></button>
-        </div>
-    </form>
+
 </header>
 <nav style="background: #232527">
     <div class="row" style="width: 100%;">

@@ -64,6 +64,4 @@ VALUES (:proname,:price,:quantity,:prodesc,:img,:brand,:category)");
             echo $e->getMessage();
         }
     }
-
-
 }
